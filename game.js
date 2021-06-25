@@ -31,9 +31,12 @@ randomY = (Math.random()<0.5) ? 5:65;
 
 gameLoop();
 
-function gameLoop(timeStamp) {
-    // Update game objects in the loop
+function gameLoop() {
     rectX--;
+    if(rectX<0){
+        rectX = 550;
+        randomY = (Math.random()<0.5) ? 5:65;
+    }
     draw();
 
     window.requestAnimationFrame(gameLoop);
