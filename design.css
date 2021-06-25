@@ -13,6 +13,13 @@ html, body {
 h1, h3 {  
     color:tomato;
 }
+
+h2 {
+    font-style: bold;
+    color: coral;
+    display: flex;
+    justify-content: center;
+}
   
 body {
     align-content:space-around;

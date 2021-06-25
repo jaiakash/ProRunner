@@ -5,6 +5,8 @@ ctx.fillStyle = 'red';
 
 player_up_bool = true;
 
+score=0;
+speed=1;
 draw_player();
 
 function draw_player() {
@@ -32,14 +34,34 @@ randomY = (Math.random()<0.5) ? 5:65;
 gameLoop();
 
 function gameLoop() {
-    rectX--;
+    rectX-=speed;
+
+    //create a new block, if old one is lost
     if(rectX<0){
+        speed+=0.5;
+        score++;
+        document.getElementById("board").innerHTML = "Score : "+score;
         rectX = 550;
         randomY = (Math.random()<0.5) ? 5:65;
     }
+
+    collision_detector();
+
     draw();
 
     window.requestAnimationFrame(gameLoop);
+}
+
+function collision_detector(){
+    if(player_up_bool)pos=5;
+    else pos=65;
+    if(rectX<50 && randomY==pos){
+        alert("Game Ended, Your Final Score is "+score);
+        location.reload();
+        rectX=0;
+        score=0;
+        document.querySelector("Scoreboard").innerHTML = "Score : "+score;
+    }
 }
 
 function draw() {
