@@ -8,6 +8,7 @@ player_up_bool = true;
 score=0;
 speed=1;
 draw_player();
+highScore();
 
 function draw_player() {
     if(player_up_bool) ctx.fillRect(0, 5, 50, 50);
@@ -40,16 +41,28 @@ function gameLoop() {
     if(rectX<0){
         speed+=0.5;
         score++;
+        highScore();
         document.getElementById("board").innerHTML = "Score : "+score;
         rectX = 550;
         randomY = (Math.random()<0.5) ? 5:65;
     }
 
     collision_detector();
-
     draw();
 
     window.requestAnimationFrame(gameLoop);
+}
+
+function highScore(){
+    hs = localStorage.getItem("HighScore");
+    if(hs==null)prev_hs=0;
+    else prev_hs=parseInt(hs);
+
+    if(score>prev_hs)localStorage.setItem("HighScore", score+"");
+
+    console.log(localStorage.getItem("HighScore"));
+
+    document.getElementById("high").innerHTML = "High Score : "+localStorage.getItem("HighScore");
 }
 
 function collision_detector(){
