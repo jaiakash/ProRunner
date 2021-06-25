@@ -37,12 +37,13 @@ gameLoop();
 function gameLoop() {
     rectX-=speed;
 
+    score+=0.01;
+
+    highScore();
+    document.getElementById("board").innerHTML = "Score : "+score.toFixed(1);
     //create a new block, if old one is lost
     if(rectX<0){
         speed+=0.5;
-        score++;
-        highScore();
-        document.getElementById("board").innerHTML = "Score : "+score;
         rectX = 550;
         randomY = (Math.random()<0.5) ? 5:65;
     }
@@ -68,8 +69,10 @@ function highScore(){
 function collision_detector(){
     if(player_up_bool)pos=5;
     else pos=65;
+
+    //Game Ended
     if(rectX<50 && randomY==pos){
-        alert("Game Ended, Your Final Score is "+score);
+        alert("Game Ended, Your Final Score is "+score.toFixed(1));
         location.reload();
         rectX=0;
         score=0;
