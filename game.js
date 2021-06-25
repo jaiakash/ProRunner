@@ -3,29 +3,47 @@ ctx = canvas.getContext("2d");
 
 ctx.fillStyle = 'red';
 
-player_up_bool = true
+player_up_bool = true;
 
-ctx.fillRect(0, 5, 50, 50);
-draw_lines();
+draw_player();
 
-function draw_lines() {
+function draw_player() {
+    if(player_up_bool) ctx.fillRect(0, 5, 50, 50);
+    else ctx.fillRect(0, 65, 50, 50);
     ctx.strokeStyle = "black";
-    ctx.lineWidth = 2;
     ctx.moveTo(0, 0);
-    ctx.lineTo(500, 0);
+    ctx.lineTo(600, 0);
     ctx.moveTo(0, 120);
-    ctx.lineTo(500, 120);
+    ctx.lineTo(600, 120);
     ctx.stroke();
 }
 
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
         ctx.clearRect(0, 0, canvas.width,canvas.height);
-
-        if(player_up_bool) ctx.fillRect(0, 65, 50, 50);
-        else ctx.fillRect(0, 5, 50, 50);
-
         player_up_bool = !player_up_bool;
-        draw_lines();
+        draw_player();
     }
+}
+
+rectX = 550;
+
+gameLoop();
+
+function gameLoop(timeStamp) {
+    // Update game objects in the loop
+    update();
+    draw();
+
+    window.requestAnimationFrame(gameLoop);
+}
+
+function update() {
+    rectX--;
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width,canvas.height);
+    ctx.fillRect(rectX, 5, 50, 50);
+    draw_player();
 }
