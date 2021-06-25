@@ -27,23 +27,20 @@ document.body.onkeyup = function(e){
 }
 
 rectX = 550;
+randomY = (Math.random()<0.5) ? 5:65;
 
 gameLoop();
 
 function gameLoop(timeStamp) {
     // Update game objects in the loop
-    update();
+    rectX--;
     draw();
 
     window.requestAnimationFrame(gameLoop);
 }
 
-function update() {
-    rectX--;
-}
-
 function draw() {
     ctx.clearRect(0, 0, canvas.width,canvas.height);
-    ctx.fillRect(rectX, 5, 50, 50);
+    ctx.fillRect(rectX, randomY, 50, 50);
     draw_player();
 }
