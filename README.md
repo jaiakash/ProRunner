@@ -20,4 +20,5 @@ As the points increase, make the runner move faster and faster. <b>Done</b>
 
 Use triangle shape as player. When the gravity is switched, player flips upside down as well. <b>Done</b>
 
+Added background music <b>Done</b>
 ## Submitted by Akash Jaiswal, Roll no 103120007
