@@ -11,8 +11,28 @@ draw_player();
 highScore();
 
 function draw_player() {
-    if(player_up_bool) ctx.fillRect(0, 5, 50, 50);
-    else ctx.fillRect(0, 65, 50, 50);
+
+    // When player was in rectangle shape
+    // ctx.fillRect(0, 5, 50, 50); and ctx.fillRect(0, 65, 50, 50);
+
+    //Drawing player as triangle
+    ctx.beginPath();
+    if(player_up_bool) {
+        ctx.moveTo(0, 5);
+        ctx.lineTo(25, 55);
+        ctx.lineTo(50, 5);
+    }
+    else {
+        ctx.moveTo(0, 115);
+        ctx.lineTo(25, 65);
+        ctx.lineTo(50, 115);
+    }
+    ctx.closePath();
+
+    ctx.fillStyle = "#FFCC00";
+    ctx.fill();
+
+    // Border Lines
     ctx.strokeStyle = "black";
     ctx.moveTo(0, 0);
     ctx.lineTo(600, 0);
