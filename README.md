@@ -5,6 +5,8 @@ Abeshek is a pro gamer that has played and completed all the games available to 
 
 The goal of the game is to survive the obstacles and increase his score.
 
+## View Project - https://jaiakash.github.io/ProRunner/
+
 ## Normal Mode
 
 A simple player that can be moved up and down pressing up and down. <b>Done</b>
@@ -21,4 +23,5 @@ As the points increase, make the runner move faster and faster. <b>Done</b>
 Use triangle shape as player. When the gravity is switched, player flips upside down as well. <b>Done</b>
 
 Added background music <b>Done</b>
+
 ## Submitted by Akash Jaiswal, Roll no 103120007
