@@ -49,6 +49,13 @@ document.body.onkeyup = function(e){
     }
 }
 
+//Added support for mobile
+document.body.ontouchstart = function(e){
+    ctx.clearRect(0, 0, canvas.width,canvas.height);
+    player_up_bool = !player_up_bool;
+    draw_player();
+}
+
 rectX = 550;
 randomY = (Math.random()<0.5) ? 5:65;
 
