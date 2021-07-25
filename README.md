@@ -5,7 +5,7 @@ Abeshek is a pro gamer that has played and completed all the games available to 
 
 The goal of the game is to survive the obstacles and increase his score.
 
-View Project - https://jaiakash.github.io/ProRunner/
+## View Project - https://jaiakash.github.io/ProRunner/
 
 ## Normal Mode
 
