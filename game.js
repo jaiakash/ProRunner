@@ -79,7 +79,7 @@ function highScore(){
     if(hs==null)prev_hs=0;
     else prev_hs=parseInt(hs);
 
-    if(score>prev_hs)localStorage.setItem("HighScore", score+"");
+    if(score>prev_hs)localStorage.setItem("HighScore", score.toFixed(1)+"");
 
     console.log(localStorage.getItem("HighScore"));
 
